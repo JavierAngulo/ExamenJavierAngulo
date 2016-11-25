@@ -1,7 +1,9 @@
-package application;
+package vista;
 
 import java.io.IOException;
 
+
+import clase.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,37 +13,37 @@ import javafx.stage.Stage;
 
 
 	/**
-	 * The only controller for the whole application.
+	 * Es el controlador de la aplicacion
 	 * 
 	 * @author Javier Angulo
 	 */
 	public class Controler {
 		
-		//not using yet
+		//no lo estamos usando
 		@FXML
 		private ImageView imageRaw;
 
-	    // Reference to the main application
-	    private MainExamen mainApp;
+	    // referencias de la aplicacion
+	    private Main mainApp;
 
 	    /**
-	     * Is called by the main application to give a reference back to itself.
+	     * Se realiza un llamamiento a la app para dar la referencia
 	     * 
 	     * @param mainApp
 	     */
-	    public void setMainApp(MainExamen mainApp) {
+	    public void setMainApp(Main mainApp) {
 	        this.mainApp = mainApp;
 	    }
 
 		/**
-	     * Opens an stage to send the profile, to be done...
+		 * Metodo sendStge sirve para enviar el perfil, asi estara hecho...
 	     */
 	    
-	    public void showSendProfile() {
+	    public void sendStage() {
 	        try {
 	            // Load the fxml file and create a new stage for the popup.
 	            FXMLLoader loader = new FXMLLoader();
-	            loader.setLocation(MainExamen.class.getResource("vista/Send.fxml"));
+	            loader.setLocation(Main.class.getResource("../vista/Send.fxml"));
 	            AnchorPane page = (AnchorPane) loader.load();
 	            Stage sendStage = new Stage();
 	            sendStage.setTitle("Send");
@@ -56,19 +58,19 @@ import javafx.stage.Stage;
 	        }
 	    }
 	    /**
-	     * Method to handle the ImageView action in the Main stage 
+	     * Metodo handle sirve para realizar la accion en el main
 	     */
 	    
 	    @FXML
 	    private void handleSend() {
-	    	showSendProfile();
+	    	sendStage();
 	    }
 
 	    /**
-	     * Closes the application when clicked on Exit in the secondary stage
+	     * Este metodo el que cierra la aplicacion
 	     */
 	    @FXML
-	    private void handleClose() {
+	    private void closeStage() {
 	   	        System.exit(0);
 	    }
 	    }
